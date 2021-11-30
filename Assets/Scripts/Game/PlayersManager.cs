@@ -143,9 +143,6 @@ namespace Game
 
         private void PlayersManager_ActivateBonusEvent(BonusModel.Effect arg1, BonusModel.Targets arg2, int idOfBonusUser)
         {
-            /*var targets = FindTargetsOfEffect(arg2, idOfBonusUser);
-            
-            _bonusManager.ApplyEffectOnTargets(arg1, targets);*/
             _bonusManager.ApplyEffectOfBonus(arg1, arg2, idOfBonusUser);
         }
 

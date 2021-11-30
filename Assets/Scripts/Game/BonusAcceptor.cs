@@ -5,7 +5,7 @@ using Photon.Pun;
 using View.Components;
 using System;
 
-public class BonusAcceptor : MonoBehaviour/*, IPunObservable*/
+public class BonusAcceptor : MonoBehaviour
 {
     [SerializeField] GameObject sparksPrefab;
     [SerializeField] GameObject icePrefab;
@@ -90,14 +90,11 @@ public class BonusAcceptor : MonoBehaviour/*, IPunObservable*/
 
     public void pickedUpBonus (BonusModel.Effect effect, BonusModel.Targets targets)
     {
-        //ApplyAcceleration();
-        //accelerationApplied = true;
         ActivateBonusEvent?.Invoke(effect, targets ,playerController.Id);
     }
 
     public void Update()
     {
-        //Debug.Log("accelerationApplied is " + accelerationApplied + " and localAccelerationApplied is " + localAccelerationApplied);
         if (accelerationApplied && localAccelerationApplied == false)
         {
             ApplyAcceleration();
@@ -115,28 +112,5 @@ public class BonusAcceptor : MonoBehaviour/*, IPunObservable*/
             UnApplyFreezer();
         }
     }
-
-    /*public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(accelerationApplied);
-
-        }
-        else
-        {
-
-            accelerationApplied = (bool)stream.ReceiveNext();
-            if (_photonView.IsMine)
-            {
-                Debug.Log("stream is recevingand recived " + accelerationApplied);
-            }
-            Debug.Log("stream is recevingand recived " + accelerationApplied);
-
-        }
-    }*/
-
-
-
 
 }
